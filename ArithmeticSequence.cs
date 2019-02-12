@@ -11,27 +11,23 @@ namespace PadawansTask2
                 throw new OverflowException();
             if (number > int.MaxValue || add > int.MaxValue || count > int.MaxValue)
                 throw new OverflowException();
-            if (count <0)
+            if (count < 0)
                 throw new ArgumentException();
             int result = 0;
             for (int i = 0; i < count; i++)
             {
                 k = result;
-                if ((k += number) > int.MaxValue)
-                    throw new OverflowException();
-                if ((k += number) < int.MinValue)
+                if ((k += number) < 0)
                     throw new OverflowException();
                 result += number;
 
                 for (int j = 0; j < i; j++)
                 {
                     k = result;
-                    if ((k += add) > int.MaxValue)
-                        throw new OverflowException();
-                    if ((k += add) < int.MinValue)
+                    if ((k += add) < 0)
                         throw new OverflowException();
                     result += add;
-                    
+
                 }
             }
             return result;
