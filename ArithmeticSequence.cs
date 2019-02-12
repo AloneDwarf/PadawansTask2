@@ -6,8 +6,21 @@ namespace PadawansTask2
     {
         public static int Calculate(int number, int add, int count)
         {
-            // put your code here
-            throw new NotImplementedException();
+            if(count <0)
+                throw new ArgumentException();
+            int result = 0;
+            for (int i = 0; i < count; i++)
+            {
+                result += number;
+                for (int j = 0; j < i; j++)
+                {
+                    result += add;
+                    if (result > int.MaxValue)
+                        throw new ArgumentException();
+                }
+            }
+            return result;
+            //throw new NotImplementedException();
         }
     }
 }
