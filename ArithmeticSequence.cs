@@ -20,7 +20,9 @@ namespace PadawansTask2
                 {
                     result += add;
                     if (result > int.MaxValue)
-                        throw new ArgumentException();
+                        throw new OverflowException();
+                    if (result < int.MinValue)
+                        throw new OverflowException();
                 }
             }
             return result;
